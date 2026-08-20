@@ -1,0 +1,2593 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Urban Voice Challenge</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet">
+
+
+<style>
+
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    color: white;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(151, 0, 255, 0.25),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(255, 0, 92, 0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(0, 255, 170, 0.08),
+            transparent 35%
+        ),
+        #050505;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   FONDO
+===================================================== */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    opacity: 0.12;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.05) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.05) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        50px 50px;
+
+    z-index: -1;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+
+    position: relative;
+
+    padding:
+        55px 20px
+        45px 20px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,0.93),
+            rgba(10,10,10,0.75)
+        );
+
+    overflow: hidden;
+}
+
+
+header::after {
+
+    content: "URBAN";
+
+    position: absolute;
+
+    top: -35px;
+    right: -20px;
+
+    font-family:
+        "Anton",
+        Impact,
+        sans-serif;
+
+    font-size: 180px;
+
+    color:
+        rgba(255,255,255,0.025);
+
+    letter-spacing: 5px;
+
+    pointer-events: none;
+}
+
+
+.logoMini {
+
+    display: inline-block;
+
+    padding:
+        6px 15px;
+
+    margin-bottom:
+        10px;
+
+    border:
+        1px solid
+        rgba(255,0,106,0.8);
+
+    border-radius:
+        50px;
+
+    color:
+        #ff1478;
+
+    font-size:
+        11px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        4px;
+
+    text-transform:
+        uppercase;
+}
+
+
+header h1 {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin: 0;
+
+    font-family:
+        "Anton",
+        Impact,
+        sans-serif;
+
+    font-size:
+        clamp(
+            48px,
+            8vw,
+            90px
+        );
+
+    font-weight:
+        400;
+
+    text-transform:
+        uppercase;
+
+    line-height:
+        0.95;
+
+    letter-spacing:
+        1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #d5d5d5,
+            #ffffff
+        );
+
+    -webkit-background-clip:
+        text;
+
+    color:
+        transparent;
+}
+
+
+.tituloColor {
+
+    color:
+        #ff1478;
+
+    -webkit-text-fill-color:
+        #ff1478;
+
+    text-shadow:
+        0 0 30px
+        rgba(255,20,120,0.45);
+}
+
+
+header p {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    max-width:
+        600px;
+
+    margin:
+        18px auto 0;
+
+    color:
+        #949494;
+
+    font-size:
+        15px;
+
+    line-height:
+        1.6;
+}
+
+
+/* =====================================================
+   MENÚ
+===================================================== */
+
+.menu {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        12px;
+
+    margin:
+        30px auto;
+
+    padding:
+        0 15px;
+}
+
+
+button {
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    border:
+        none;
+
+    outline:
+        none;
+
+    cursor:
+        pointer;
+
+    padding:
+        15px 25px;
+
+    border-radius:
+        12px;
+
+    font-weight:
+        900;
+
+    font-size:
+        13px;
+
+    letter-spacing:
+        0.5px;
+
+    text-transform:
+        uppercase;
+
+    color:
+        white;
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+}
+
+
+.botonMenu {
+
+    background:
+        linear-gradient(
+            135deg,
+            #161616,
+            #242424
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,0.4);
+}
+
+
+.botonMenu:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        #292929;
+}
+
+
+.botonDesafio {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff006e,
+            #a600ff
+        );
+
+    box-shadow:
+        0 8px 30px
+        rgba(255,0,110,0.25);
+}
+
+
+.botonDesafio:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 38px
+        rgba(255,0,110,0.45);
+}
+
+
+/* =====================================================
+   CONTENEDOR
+===================================================== */
+
+.contenedor {
+
+    width:
+        92%;
+
+    max-width:
+        1250px;
+
+    margin:
+        0 auto;
+}
+
+
+/* =====================================================
+   SECCIONES
+===================================================== */
+
+.numeroSeccion {
+
+    margin-top:
+        20px;
+
+    color:
+        #ff1478;
+
+    font-size:
+        11px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        4px;
+
+    text-transform:
+        uppercase;
+}
+
+
+h2 {
+
+    font-family:
+        "Anton",
+        Impact,
+        sans-serif;
+
+    margin:
+        7px 0;
+
+    font-size:
+        clamp(
+            35px,
+            5vw,
+            56px
+        );
+
+    font-weight:
+        400;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1px;
+}
+
+
+.descripcion {
+
+    max-width:
+        650px;
+
+    margin:
+        0 auto 30px;
+
+    color:
+        #999;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.6;
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.cantantes {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
+    gap:
+        20px;
+
+    padding:
+        15px 0 60px;
+}
+
+
+/* =====================================================
+   TARJETAS
+===================================================== */
+
+.cantante {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    cursor:
+        pointer;
+
+    border:
+        2px solid
+        rgba(255,255,255,0.08);
+
+    border-radius:
+        18px;
+
+    background:
+        #0d0d0d;
+
+    box-shadow:
+        0 14px 40px
+        rgba(0,0,0,0.45);
+
+    transition:
+        transform 0.25s ease,
+        border 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.cantante:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(255,20,120,0.6);
+
+    box-shadow:
+        0 18px 45px
+        rgba(0,0,0,0.6),
+        0 0 25px
+        rgba(255,20,120,0.12);
+}
+
+
+/* =====================================================
+   FOTO
+===================================================== */
+
+.fotoContainer {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    width:
+        100%;
+
+    height:
+        270px;
+
+    background:
+        #151515;
+}
+
+
+.fotoContainer::after {
+
+    content: "";
+
+    position:
+        absolute;
+
+    bottom:
+        0;
+
+    left:
+        0;
+
+    right:
+        0;
+
+    height:
+        50%;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,0.8)
+        );
+
+    pointer-events:
+        none;
+}
+
+
+.cantante img {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+
+.cantante:hover img {
+
+    transform:
+        scale(1.06);
+
+    filter:
+        contrast(1.05);
+}
+
+
+/* =====================================================
+   INFO
+===================================================== */
+
+.infoCantante {
+
+    position:
+        relative;
+
+    padding:
+        15px 15px 16px;
+
+    text-align:
+        left;
+}
+
+
+.numeroArtista {
+
+    color:
+        #ff1478;
+
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        3px;
+}
+
+
+.cantante h3 {
+
+    margin:
+        4px 0 12px;
+
+    font-family:
+        "Anton",
+        Impact,
+        sans-serif;
+
+    font-size:
+        25px;
+
+    font-weight:
+        400;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.5px;
+}
+
+
+/* =====================================================
+   BOTÓN ESCUCHAR
+===================================================== */
+
+.escuchar {
+
+    width:
+        100%;
+
+    margin:
+        0;
+
+    padding:
+        11px;
+
+    background:
+        #181818;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    color:
+        #ddd;
+
+    font-size:
+        11px;
+}
+
+
+.escuchar:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff006e,
+            #8b00ff
+        );
+
+    color:
+        white;
+
+    transform:
+        none;
+}
+
+
+/* =====================================================
+   JUEGO
+===================================================== */
+
+#juego {
+
+    display:
+        none;
+}
+
+
+/* =====================================================
+   PANEL JUEGO
+===================================================== */
+
+.panelJuego {
+
+    max-width:
+        750px;
+
+    margin:
+        25px auto 30px;
+
+    padding:
+        25px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    backdrop-filter:
+        blur(10px);
+
+    box-shadow:
+        0 18px 50px
+        rgba(0,0,0,0.35);
+}
+
+
+.repetir {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff006e,
+            #a400ff
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(255,0,110,0.25);
+}
+
+
+/* =====================================================
+   CONTADOR
+===================================================== */
+
+#contador {
+
+    margin:
+        12px 0 0;
+
+    font-family:
+        "Anton",
+        Impact,
+        sans-serif;
+
+    font-size:
+        85px;
+
+    line-height:
+        1;
+
+    color:
+        white;
+
+    text-shadow:
+        0 0 40px
+        rgba(170,0,255,0.45);
+}
+
+
+.textoTiempo {
+
+    margin-top:
+        4px;
+
+    color:
+        #777;
+
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        3px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.tiempoPeligro {
+
+    color:
+        #ff174f !important;
+
+    animation:
+        pulso 0.5s
+        infinite alternate;
+}
+
+
+@keyframes pulso {
+
+    from {
+        transform:
+            scale(1);
+    }
+
+    to {
+        transform:
+            scale(1.13);
+    }
+}
+
+
+/* =====================================================
+   MENSAJE
+===================================================== */
+
+#mensaje {
+
+    min-height:
+        42px;
+
+    margin:
+        17px 0 5px;
+
+    font-family:
+        "Anton",
+        Impact,
+        sans-serif;
+
+    font-size:
+        28px;
+
+    letter-spacing:
+        1px;
+
+    text-transform:
+        uppercase;
+}
+
+
+/* =====================================================
+   PUNTOS
+===================================================== */
+
+#puntos {
+
+    display:
+        inline-block;
+
+    margin-top:
+        12px;
+
+    padding:
+        8px 18px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    border-radius:
+        50px;
+
+    background:
+        #101010;
+
+    color:
+        #bbb;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1px;
+
+    text-transform:
+        uppercase;
+}
+
+
+/* =====================================================
+   ESTADOS
+===================================================== */
+
+.correcto {
+
+    border-color:
+        #00ff91 !important;
+
+    box-shadow:
+        0 0 35px
+        rgba(0,255,145,0.5) !important;
+
+    transform:
+        scale(1.03);
+}
+
+
+.incorrecto {
+
+    border-color:
+        #ff174f !important;
+
+    box-shadow:
+        0 0 35px
+        rgba(255,23,79,0.5) !important;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width: 1000px) {
+
+    .cantantes {
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+    }
+}
+
+
+@media(max-width: 550px) {
+
+    .cantantes {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .fotoContainer {
+
+        height:
+            350px;
+    }
+
+    .menu {
+
+        flex-direction:
+            column;
+    }
+
+    .menu button {
+
+        width:
+            100%;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- REPRODUCTOR ÚNICO -->
+
+<audio
+    id="reproductor"
+    preload="auto">
+</audio>
+
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="logoMini">
+        Urban Sound Game
+    </div>
+
+    <h1>
+
+        WHO'S
+
+        <span class="tituloColor">
+
+            SINGING?
+
+        </span>
+
+    </h1>
+
+    <p>
+
+        Escucha la voz, reconoce al artista
+        y demuestra cuánto sabes de música urbana.
+
+    </p>
+
+</header>
+
+
+
+<!-- =====================================================
+     MENÚ
+===================================================== -->
+
+<div class="menu">
+
+    <button
+        class="botonMenu"
+        onclick="mostrarEntrenamiento()">
+
+        🎵 Entrenamiento
+
+    </button>
+
+    <button
+        class="botonDesafio"
+        onclick="mostrarJuego()">
+
+        🎧 Iniciar desafío
+
+    </button>
+
+</div>
+
+
+
+<!-- =====================================================
+     ENTRENAMIENTO
+===================================================== -->
+
+<section id="entrenamiento">
+
+<div class="contenedor">
+
+    <div class="numeroSeccion">
+        Nivel 01
+    </div>
+
+    <h2>
+        Conoce las voces
+    </h2>
+
+    <p class="descripcion">
+
+        Presiona la fotografía o el botón de cada artista
+        para escuchar su audio correspondiente.
+
+    </p>
+
+    <div
+        id="listaEntrenamiento"
+        class="cantantes">
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DESAFÍO
+===================================================== -->
+
+<section id="juego">
+
+<div class="contenedor">
+
+    <div class="numeroSeccion">
+        Nivel 02
+    </div>
+
+    <h2>
+        Reconoce al artista
+    </h2>
+
+    <p class="descripcion">
+
+        Sonará un cantante al azar.
+        Los 8 artistas aparecerán una vez antes de volver a repetirse.
+
+    </p>
+
+    <div class="panelJuego">
+
+        <button
+            class="repetir"
+            onclick="repetirAudio()">
+
+            🔊 Repetir audio
+
+        </button>
+
+        <div id="contador">
+            10
+        </div>
+
+        <div class="textoTiempo">
+            segundos restantes
+        </div>
+
+        <div id="mensaje">
+        </div>
+
+        <div id="puntos">
+            Puntos: 0
+        </div>
+
+    </div>
+
+    <div
+        id="listaJuego"
+        class="cantantes">
+    </div>
+
+</div>
+
+</section>
+
+
+
+<script>
+
+/* =====================================================
+   LISTA DE CANTANTES
+===================================================== */
+
+const cantantes = [
+
+    {
+        id: "anuel",
+        nombre: "Anuel AA",
+        imagen: "anuel.jpg",
+        audio: "anuel.mp3"
+    },
+
+    {
+        id: "badbunny",
+        nombre: "Bad Bunny",
+        imagen: "bad bunny.jpg",
+        audio: "badbunny.mp3"
+    },
+
+    {
+        id: "bryantmyers",
+        nombre: "Bryant Myers",
+        imagen: "bryantmyers.jpg",
+        audio: "bryantmyers.mp3"
+    },
+
+    {
+        id: "eladio",
+        nombre: "Eladio Carrión",
+        imagen: "eladio.jpg",
+        audio: "eladio.mp3"
+    },
+
+    {
+        id: "feid",
+        nombre: "Feid",
+        imagen: "feid.jpg",
+        audio: "feid.mp3"
+    },
+
+    {
+        id: "jhayco",
+        nombre: "Jhayco",
+        imagen: "jhayco.jpg",
+        audio: "jhayco.mp3"
+    },
+
+    {
+        id: "mora",
+        nombre: "Mora",
+        imagen: "mora.jpg",
+        audio: "mora.mp3"
+    },
+
+    {
+        id: "myketowers",
+        nombre: "Myke Towers",
+        imagen: "myketowers.jpg",
+        audio: "myketowers.mp3"
+    }
+
+];
+
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+const reproductor =
+    document.getElementById(
+        "reproductor"
+    );
+
+
+let cantanteCorrecto =
+    null;
+
+
+let intervalo =
+    null;
+
+
+let siguientePreguntaTimer =
+    null;
+
+
+let tiempo =
+    10;
+
+
+let puntos =
+    0;
+
+
+let puedeResponder =
+    false;
+
+
+let modoActual =
+    "entrenamiento";
+
+
+/* =====================================================
+   NUEVO SISTEMA ALEATORIO
+
+   Aquí se guardan los 8 cantantes mezclados.
+===================================================== */
+
+let bolsaCantantes = [];
+
+
+
+/* =====================================================
+   MEZCLAR ARRAY
+
+   Algoritmo Fisher-Yates.
+===================================================== */
+
+function mezclarArray(array) {
+
+    const copia =
+        [...array];
+
+
+    for (
+        let i = copia.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random() *
+                (i + 1)
+            );
+
+
+        const temporal =
+            copia[i];
+
+
+        copia[i] =
+            copia[j];
+
+
+        copia[j] =
+            temporal;
+
+    }
+
+
+    return copia;
+
+}
+
+
+
+/* =====================================================
+   CREAR NUEVA RONDA DE 8
+
+   Los 8 aparecen una vez.
+===================================================== */
+
+function crearNuevaBolsa() {
+
+    bolsaCantantes =
+        mezclarArray(
+            cantantes
+        );
+
+
+    console.log(
+        "Nueva ronda:",
+        bolsaCantantes.map(
+            c => c.nombre
+        )
+    );
+
+}
+
+
+
+/* =====================================================
+   OBTENER SIGUIENTE CANTANTE
+
+   Si ya salieron los 8,
+   se vuelve a mezclar.
+===================================================== */
+
+function obtenerSiguienteCantante() {
+
+
+    if (
+        bolsaCantantes.length === 0
+    ) {
+
+        crearNuevaBolsa();
+
+    }
+
+
+    return bolsaCantantes.shift();
+
+}
+
+
+
+/* =====================================================
+   DETENER TODO
+===================================================== */
+
+function detenerTodo() {
+
+
+    reproductor.pause();
+
+
+    reproductor.currentTime =
+        0;
+
+
+    reproductor.removeAttribute(
+        "src"
+    );
+
+
+    reproductor.load();
+
+
+
+    if (intervalo) {
+
+
+        clearInterval(
+            intervalo
+        );
+
+
+        intervalo =
+            null;
+
+    }
+
+
+
+    if (
+        siguientePreguntaTimer
+    ) {
+
+
+        clearTimeout(
+            siguientePreguntaTimer
+        );
+
+
+        siguientePreguntaTimer =
+            null;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   REPRODUCIR AUDIO
+===================================================== */
+
+function reproducirArchivo(
+    archivo
+) {
+
+
+    reproductor.pause();
+
+
+    reproductor.currentTime =
+        0;
+
+
+    reproductor.src =
+        archivo;
+
+
+    reproductor.load();
+
+
+
+    const promesa =
+        reproductor.play();
+
+
+
+    if (
+        promesa !== undefined
+    ) {
+
+
+        promesa.catch(
+            function(error) {
+
+
+                console.error(
+                    "Error reproduciendo:",
+                    archivo,
+                    error
+                );
+
+
+                alert(
+                    "No pude reproducir " +
+                    archivo +
+                    ". Revisa que esté junto a index.html."
+                );
+
+
+            }
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   CREAR ENTRENAMIENTO
+===================================================== */
+
+function crearEntrenamiento() {
+
+
+    const contenedor =
+        document.getElementById(
+            "listaEntrenamiento"
+        );
+
+
+    contenedor.innerHTML =
+        "";
+
+
+
+    cantantes.forEach(
+        function(
+            cantante,
+            indice
+        ) {
+
+
+            const tarjeta =
+                crearTarjeta(
+                    cantante,
+                    indice,
+                    false
+                );
+
+
+            contenedor.appendChild(
+                tarjeta
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   CREAR TARJETA
+===================================================== */
+
+function crearTarjeta(
+    cantante,
+    indice,
+    esJuego
+) {
+
+
+    const tarjeta =
+        document.createElement(
+            "div"
+        );
+
+
+    tarjeta.className =
+        esJuego
+        ? "cantante opcion"
+        : "cantante";
+
+
+    tarjeta.dataset.id =
+        cantante.id;
+
+
+
+    const fotoContainer =
+        document.createElement(
+            "div"
+        );
+
+
+    fotoContainer.className =
+        "fotoContainer";
+
+
+
+    const imagen =
+        document.createElement(
+            "img"
+        );
+
+
+    imagen.src =
+        cantante.imagen;
+
+
+    imagen.alt =
+        cantante.nombre;
+
+
+
+    fotoContainer.appendChild(
+        imagen
+    );
+
+
+
+    const informacion =
+        document.createElement(
+            "div"
+        );
+
+
+    informacion.className =
+        "infoCantante";
+
+
+
+    const numero =
+        document.createElement(
+            "div"
+        );
+
+
+    numero.className =
+        "numeroArtista";
+
+
+    numero.textContent =
+        "ARTISTA 0" +
+        (indice + 1);
+
+
+
+    const nombre =
+        document.createElement(
+            "h3"
+        );
+
+
+    nombre.textContent =
+        cantante.nombre;
+
+
+
+    informacion.appendChild(
+        numero
+    );
+
+
+    informacion.appendChild(
+        nombre
+    );
+
+
+
+    if (!esJuego) {
+
+
+        const boton =
+            document.createElement(
+                "button"
+            );
+
+
+        boton.className =
+            "escuchar";
+
+
+        boton.textContent =
+            "▶ Escuchar voz";
+
+
+        boton.onclick =
+            function(event) {
+
+
+                event.stopPropagation();
+
+
+                reproducirArchivo(
+                    cantante.audio
+                );
+
+            };
+
+
+        tarjeta.onclick =
+            function() {
+
+
+                reproducirArchivo(
+                    cantante.audio
+                );
+
+            };
+
+
+        informacion.appendChild(
+            boton
+        );
+
+    }
+
+
+    else {
+
+
+        tarjeta.onclick =
+            function() {
+
+
+                responder(
+                    cantante,
+                    tarjeta
+                );
+
+            };
+
+    }
+
+
+
+    tarjeta.appendChild(
+        fotoContainer
+    );
+
+
+    tarjeta.appendChild(
+        informacion
+    );
+
+
+    return tarjeta;
+
+}
+
+
+
+/* =====================================================
+   MOSTRAR ENTRENAMIENTO
+===================================================== */
+
+function mostrarEntrenamiento() {
+
+
+    modoActual =
+        "entrenamiento";
+
+
+    puedeResponder =
+        false;
+
+
+    detenerTodo();
+
+
+
+    document.getElementById(
+        "entrenamiento"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "juego"
+    ).style.display =
+        "none";
+
+}
+
+
+
+/* =====================================================
+   INICIAR DESAFÍO
+===================================================== */
+
+function mostrarJuego() {
+
+
+    modoActual =
+        "juego";
+
+
+    detenerTodo();
+
+
+
+    document.getElementById(
+        "entrenamiento"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "juego"
+    ).style.display =
+        "block";
+
+
+
+    puntos =
+        0;
+
+
+
+    document.getElementById(
+        "puntos"
+    ).textContent =
+        "Puntos: 0";
+
+
+
+    /* IMPORTANTE:
+       Cada vez que se inicia el desafío
+       generamos una nueva ronda de 8. */
+
+    crearNuevaBolsa();
+
+
+
+    crearJuego();
+
+
+    nuevaPregunta();
+
+}
+
+
+
+/* =====================================================
+   CREAR TARJETAS JUEGO
+===================================================== */
+
+function crearJuego() {
+
+
+    const contenedor =
+        document.getElementById(
+            "listaJuego"
+        );
+
+
+    contenedor.innerHTML =
+        "";
+
+
+
+    cantantes.forEach(
+        function(
+            cantante,
+            indice
+        ) {
+
+
+            const tarjeta =
+                crearTarjeta(
+                    cantante,
+                    indice,
+                    true
+                );
+
+
+            contenedor.appendChild(
+                tarjeta
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   NUEVA PREGUNTA
+===================================================== */
+
+function nuevaPregunta() {
+
+
+    if (
+        modoActual !==
+        "juego"
+    ) {
+
+        return;
+
+    }
+
+
+
+    detenerTodo();
+
+
+    limpiarEstados();
+
+
+    puedeResponder =
+        true;
+
+
+
+    document.getElementById(
+        "mensaje"
+    ).textContent =
+        "";
+
+
+
+    /* =================================================
+       NUEVO SISTEMA
+
+       No elegimos con Math.random() directamente.
+
+       Sacamos al siguiente cantante de la bolsa.
+       Cuando se vacía, se mezclan nuevamente los 8.
+    ================================================= */
+
+
+    cantanteCorrecto =
+        obtenerSiguienteCantante();
+
+
+
+    reproducirArchivo(
+        cantanteCorrecto.audio
+    );
+
+
+
+    tiempo =
+        10;
+
+
+
+    const contador =
+        document.getElementById(
+            "contador"
+        );
+
+
+    contador.textContent =
+        tiempo;
+
+
+    contador.classList.remove(
+        "tiempoPeligro"
+    );
+
+
+
+    intervalo =
+        setInterval(
+            function() {
+
+
+                tiempo--;
+
+
+                contador.textContent =
+                    tiempo;
+
+
+
+                if (
+                    tiempo <= 3
+                ) {
+
+
+                    contador.classList.add(
+                        "tiempoPeligro"
+                    );
+
+                }
+
+
+
+                if (
+                    tiempo <= 0
+                ) {
+
+
+                    clearInterval(
+                        intervalo
+                    );
+
+
+                    intervalo =
+                        null;
+
+
+                    tiempoAgotado();
+
+                }
+
+            },
+
+            1000
+        );
+
+}
+
+
+
+/* =====================================================
+   REPETIR AUDIO
+===================================================== */
+
+function repetirAudio() {
+
+
+    if (
+        !cantanteCorrecto ||
+        modoActual !==
+        "juego"
+    ) {
+
+        return;
+
+    }
+
+
+
+    reproducirArchivo(
+        cantanteCorrecto.audio
+    );
+
+}
+
+
+
+/* =====================================================
+   RESPONDER
+===================================================== */
+
+function responder(
+    cantante,
+    tarjeta
+) {
+
+
+    if (
+        !puedeResponder
+    ) {
+
+        return;
+
+    }
+
+
+
+    puedeResponder =
+        false;
+
+
+
+    if (
+        intervalo
+    ) {
+
+
+        clearInterval(
+            intervalo
+        );
+
+
+        intervalo =
+            null;
+
+    }
+
+
+
+    reproductor.pause();
+
+
+    reproductor.currentTime =
+        0;
+
+
+
+    if (
+        cantante.id ===
+        cantanteCorrecto.id
+    ) {
+
+
+        puntos++;
+
+
+
+        document.getElementById(
+            "puntos"
+        ).textContent =
+            "Puntos: " +
+            puntos;
+
+
+
+        const mensaje =
+            document.getElementById(
+                "mensaje"
+            );
+
+
+        mensaje.textContent =
+            "✓ CORRECTO — " +
+            cantanteCorrecto.nombre;
+
+
+        mensaje.style.color =
+            "#00ff91";
+
+
+
+        tarjeta.classList.add(
+            "correcto"
+        );
+
+
+
+        feedbackCorrecto();
+
+    }
+
+
+    else {
+
+
+        const mensaje =
+            document.getElementById(
+                "mensaje"
+            );
+
+
+        mensaje.textContent =
+            "✕ INCORRECTO — ERA " +
+            cantanteCorrecto.nombre;
+
+
+        mensaje.style.color =
+            "#ff174f";
+
+
+
+        tarjeta.classList.add(
+            "incorrecto"
+        );
+
+
+
+        marcarRespuestaCorrecta();
+
+
+
+        feedbackIncorrecto();
+
+    }
+
+
+
+    siguientePreguntaTimer =
+        setTimeout(
+            function() {
+
+
+                siguientePreguntaTimer =
+                    null;
+
+
+                nuevaPregunta();
+
+            },
+
+            2200
+        );
+
+}
+
+
+
+/* =====================================================
+   TIEMPO AGOTADO
+===================================================== */
+
+function tiempoAgotado() {
+
+
+    if (
+        !puedeResponder
+    ) {
+
+        return;
+
+    }
+
+
+
+    puedeResponder =
+        false;
+
+
+
+    reproductor.pause();
+
+
+    reproductor.currentTime =
+        0;
+
+
+
+    const mensaje =
+        document.getElementById(
+            "mensaje"
+        );
+
+
+    mensaje.textContent =
+        "⏱ TIEMPO — ERA " +
+        cantanteCorrecto.nombre;
+
+
+    mensaje.style.color =
+        "#ff174f";
+
+
+
+    marcarRespuestaCorrecta();
+
+
+    feedbackIncorrecto();
+
+
+
+    siguientePreguntaTimer =
+        setTimeout(
+            function() {
+
+
+                siguientePreguntaTimer =
+                    null;
+
+
+                nuevaPregunta();
+
+            },
+
+            2200
+        );
+
+}
+
+
+
+/* =====================================================
+   MARCAR RESPUESTA CORRECTA
+===================================================== */
+
+function marcarRespuestaCorrecta() {
+
+
+    const opciones =
+        document.querySelectorAll(
+            "#listaJuego .opcion"
+        );
+
+
+
+    opciones.forEach(
+        function(opcion) {
+
+
+            if (
+                opcion.dataset.id ===
+                cantanteCorrecto.id
+            ) {
+
+
+                opcion.classList.add(
+                    "correcto"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   LIMPIAR
+===================================================== */
+
+function limpiarEstados() {
+
+
+    const opciones =
+        document.querySelectorAll(
+            "#listaJuego .opcion"
+        );
+
+
+
+    opciones.forEach(
+        function(opcion) {
+
+
+            opcion.classList.remove(
+                "correcto"
+            );
+
+
+            opcion.classList.remove(
+                "incorrecto"
+            );
+
+        }
+    );
+
+
+
+    document.getElementById(
+        "contador"
+    ).classList.remove(
+        "tiempoPeligro"
+    );
+
+}
+
+
+
+/* =====================================================
+   FEEDBACK CORRECTO
+===================================================== */
+
+function feedbackCorrecto() {
+
+
+    const AudioContext =
+        window.AudioContext ||
+        window.webkitAudioContext;
+
+
+
+    if (
+        !AudioContext
+    ) {
+
+        return;
+
+    }
+
+
+
+    const contexto =
+        new AudioContext();
+
+
+
+    const gain =
+        contexto.createGain();
+
+
+
+    gain.connect(
+        contexto.destination
+    );
+
+
+
+    gain.gain.setValueAtTime(
+        0.12,
+        contexto.currentTime
+    );
+
+
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.001,
+        contexto.currentTime +
+        0.45
+    );
+
+
+
+    const tono1 =
+        contexto.createOscillator();
+
+
+    tono1.type =
+        "sine";
+
+
+    tono1.frequency.value =
+        600;
+
+
+    tono1.connect(
+        gain
+    );
+
+
+    tono1.start();
+
+
+    tono1.stop(
+        contexto.currentTime +
+        0.16
+    );
+
+
+
+    const tono2 =
+        contexto.createOscillator();
+
+
+    tono2.type =
+        "sine";
+
+
+    tono2.frequency.value =
+        900;
+
+
+    tono2.connect(
+        gain
+    );
+
+
+    tono2.start(
+        contexto.currentTime +
+        0.14
+    );
+
+
+    tono2.stop(
+        contexto.currentTime +
+        0.38
+    );
+
+}
+
+
+
+/* =====================================================
+   FEEDBACK INCORRECTO
+===================================================== */
+
+function feedbackIncorrecto() {
+
+
+    const AudioContext =
+        window.AudioContext ||
+        window.webkitAudioContext;
+
+
+
+    if (
+        !AudioContext
+    ) {
+
+        return;
+
+    }
+
+
+
+    const contexto =
+        new AudioContext();
+
+
+
+    const oscilador =
+        contexto.createOscillator();
+
+
+    const gain =
+        contexto.createGain();
+
+
+
+    oscilador.connect(
+        gain
+    );
+
+
+    gain.connect(
+        contexto.destination
+    );
+
+
+
+    oscilador.type =
+        "sawtooth";
+
+
+
+    oscilador.frequency.setValueAtTime(
+        170,
+        contexto.currentTime
+    );
+
+
+
+    oscilador.frequency.exponentialRampToValueAtTime(
+        80,
+        contexto.currentTime +
+        0.35
+    );
+
+
+
+    gain.gain.setValueAtTime(
+        0.07,
+        contexto.currentTime
+    );
+
+
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.001,
+        contexto.currentTime +
+        0.35
+    );
+
+
+
+    oscilador.start();
+
+
+
+    oscilador.stop(
+        contexto.currentTime +
+        0.35
+    );
+
+}
+
+
+
+/* =====================================================
+   INICIAR
+===================================================== */
+
+crearEntrenamiento();
+
+
+
+window.addEventListener(
+    "beforeunload",
+    function() {
+
+        detenerTodo();
+
+    }
+);
+
+</script>
+
+</body>
+</html>
